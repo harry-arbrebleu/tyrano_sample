@@ -1,46 +1,165 @@
 *start
-
-[title name="走るか寝るかするメロス"]
+[title name="組み立て単位ゲーム"]
 [hidemenubutton]
 [wait time=200]
 [freeimage layer="base"]
 
-「走るか寝るかするメロス」[l][r]
+[bg storage=units-origin.png time=500]
+    「組み立て単位ゲーム」[l][r]
+    朝起きたら折角組み立てた単位が...[l][cm]
+[jump target=*hz]
+# [jump target=*start2]
 
-メロスは激怒した。[l][r]
 
-必ず、かの邪智暴虐の王を除かねばならぬと決意した。[l][r]
+*start2
+    [bg storage=units-broken.png time=500]
+    全て基本単位になってしまった！！[l][r]
+    君にいくつか単位の組み立てを手伝ってほしい．[l][r]
+    これが無いと計測ができず，[l][r]
+    計測なくして科学なしだ！！[l][r]
 
-(中略)[l][r]
+    現代ではSIが一般的だが...[r]
+    分野によってはCGS単位系が用いられることがある[r]
 
-ああ、何もかも、ばかばかしい。私は、醜い裏切り者だ。どうとも、勝手にするがよい。やんぬる哉。[l][r]
-メロスは...[l][r]
-
-[link target=*tag_sleep] →寝る [endlink][r]
-[link target=*tag_run] →走る [endlink][r]
+    小心者に単位系の組み立ては難しいかもしれない...[l][r]
+    [link target=*SI_unit_description] -> SIを組み立てる(イージーモード) [endlink][r]
+    [link target=*hz] -> debug [endlink][r]
+    [link target=*CGS_unit_description] -> CGS単位系を組み立てる(ハードモード) [endlink][r]
 [s]
 
-*tag_sleep
+*SI_unit_description
+    [cm]
+    [bg storage=si.png time=500]
+    SIは7つの基本単位をもとに全ての物理量を表すものだ．[r]
+    君が使える単位は...[l][r]
+    ・時間: s[l][r]
+    ・長さ: m[l][r]
+    ・質量: kg[l][r]
+    ・電流: A[l][r]
+    ・熱力学的温度: K[l][r]
+    ・物理量: mol[l][r]
+    ・光度: cd[l][r]
+    の7つだ．[l][r]
+    君には科学者の名前を持つ17個の単位のうち，いくつかを組み立ててもらう．[l][r]
+    一度組み立てた単位は，君が自由につかってよいが，必ずしも使えるとは限らない．[l][r]
 
-[cm]
+    がんばってくれ！[l][r]
+    なお，間違えると科学者が怒り，ゲームオーバーだ．[l][r]
+    くれぐれもよろしく頼むぞ[l][r]
+[jump target=*hz]
 
-[bg storage=sleep.jpg time=500]
+*CGS_unit_description
+    [cm]
+    [bg storage=si.png time=500]
+    CGS単位系は3つの基本単位をもとに全ての物理量を表すものだ．[r]
+    君が使える単位は...[l][r]
+    ・長さ: cm[l][r]
+    ・質量: g[l][r]
+    ・時間: s[l][r]
+    のみだ．[l][r]
+    君には科学者の名前を持つ22個の単位のうち，いくつかを組み立ててもらう[l][r]
+    一度組み立てた単位は，君が自由につかってよい．[l][r]
 
-メロスは死んだように深く眠った。[l][r]
-勇者は、ひどく赤面した。[r]
+    がんばってくれ！[l][r]
+    なお，間違えると科学者が怒り，ゲームオーバーだ．[l][r]
+    くれぐれもよろしく頼むぞ[l][r]
+[jump target=*gal]
+# gal fr g
+*hz
+    [cm]
+    [bg storage=hz.png time=500]
+    組み立ててくれ！[l]
+    [button target=*hz-correct x=300 y=200 graphic=s-1.png]
+    [button target=*hz-wrong x=300 y=300 graphic=m2.png]
+    [button target=*hz-wrong x=300 y=400 graphic=kg2s-1.png]
+    [s]
+    *hz-correct
+        [cm]
+        正解だ！[l][r]
+        [cm]
+    [jump target=*n]
+    *hz-wrong
+        [bg storage=hertz.jpg time=500]
+        [cm]
+        君はHeinrich Rudolf Hertzを怒らせた[l][r]
+        GAME OVER[l][r]
+        [cm]
+    [jump target=*start]
 
-【 BAD END 】[l][cm]
+*n
+    [cm]
+    [bg storage=n.png time=500]
+    難易度★★★[l][r]
+    組み立ててくれ！[l][r]
+    [button target=*n-wrong x=300 y=200 graphic=kgm2s-2.png]
+    [button target=*n-wrong x=300 y=300 graphic=kg2s-1.png]
+    [button target=*n-correct x=300 y=400 graphic=kgms-2.png]
+    [s]
+    *n-correct
+        [cm]
+        正解だ！[l][r]
+        君は組み立て単位N(ニュートン)を手に入れた！[l][r]
+        [cm]
+    [jump target=*j]
+    *n-wrong
+        [bg storage=newton.jpg time=500]
+        [cm]
+        君はIsaac Newtonを怒らせた[l][r]
+        GAME OVER[l][r]
+        [cm]
+    [jump target=*start]
 
-[jump target=*start]
+*j
+    [cm]
+    [bg storage=j.png time=500]
+    難易度★★★[l][r]
+    組み立ててくれ！[l][r]
+    [button target=*j-wrong x=150 y=195 graphic=kgm2s-1.png]
+    [button target=*j-correct x=300 y=195 graphic=nm.png]
+    [button target=*j-wrong x=450 y=195 graphic=nm2.png]
+    [s]
+    *hz-correct
+        [cm]
+        正解だ！[l][r]
+        君は組み立て単位J(ジュール)を手に入れた！[l][r]
+        [cm]
+    [jump target=*v]
+    *hz-wrong
+        [bg storage=joule.jpg time=500]
+        [cm]
+        君はJames Jouleを怒らせた[l][r]
+        GAME OVER[l][r]
+        [cm]
+    [jump target=*start]
 
-*tag_run
+*v
+    [cm]
+    [bg storage=v.png time=500]
+    難易度★★★★[l][r]
+    組み立ててくれ！[l][r]
+    [button target=*v-correct x=150 y=195 graphic=kgm2s-3a-1.png]
+    [button target=*v-wrong x=300 y=195 graphic=js-2a.png]
+    [button target=*v-wrong x=450 y=195 graphic=kgm2s-2a-1.png]
+    [s]
+    *v-correct
+        [cm]
+        正解だ！[l][r]
+        君は組み立て単位V(ボルト)を手に入れた！[l][r]
+        [cm]
+    [jump target=*]
+    *v-wrong
+        [bg storage=volta.jpg time=500]
+        [cm]
+        君はAlessandro Voltaを怒らせた[l][r]
+        GAME OVER[l][r]
+        [cm]
+    [jump target=*start]
 
-[bg storage=run.jpg time=500]
 
-[cm]
-メロスは黒い風のように走った。[l][r]
-陽は、ゆらゆら地平線に没し、まさに最後の一片の残光も、消えようとした時、メロスは疾風の如く刑場に突入した。間に合った。[r]
-
-【 GOOD END 】[l][cm]
-
-[jump target=*start]
+# *CGS_unit_description
+# [bg storage=run.jpg time=500]
+# [cm]
+# メロスは黒い風のように走った。[l][r]
+# 陽は、ゆらゆら地平線に没し、まさに最後の一片の残光も、消えようとした時、メロスは疾風の如く刑場に突入した。間に合った。[r]
+# 【 GOOD END 】[l][cm]
+# [jump target=*start]
